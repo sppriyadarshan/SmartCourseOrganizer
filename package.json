@@ -1,0 +1,12 @@
+{
+  "name": "course-organizer",
+  "version": "1.0.0",
+  "description": "Smart Course Material Organizer",
+  "scripts": {
+    "dev:all": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
+    "start:all": "concurrently \"cd backend && npm start\" \"cd frontend && npm start\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "id": "3a015e7b-c8c5-4e24-bd47-919e68c339f8",
+    "fileName": "DPCO notes.docx",
+    "storedName": "1774924421619-DPCO notes.docx",
+    "fileType": "DOCX",
+    "fileSize": 3719892,
+    "course": "DPCO",
+    "topic": "UNIT 1",
+    "semester": "Semester 1",
+    "tags": [
+      "Important 2 marks"
+    ],
+    "description": "",
+    "uploadDate": "2026-03-31T02:33:41.683Z",
+    "isFavorite": false,
+    "status": "Completed"
+  },
+  {
+    "id": "ef3c7a87-dea6-429c-8bd0-a35fa06f52c6",
+    "fileName": "Lab Manual.docx.pdf",
+    "storedName": "1774938696039-Lab Manual.docx.pdf",
+    "fileType": "PDF",
+    "fileSize": 245213,
+    "course": "dbms",
+    "topic": "record",
+    "semester": "Semester 4",
+    "tags": [
+      "record"
+    ],
+    "description": "",
+    "uploadDate": "2026-03-31T06:31:36.057Z",
+    "status": "To-do",
+    "isFavorite": false,
+    "notes": ""
+  },
+  {
+    "id": "56b03dd0-e9d0-4463-a53a-d8f91419bedb",
+    "fileName": "DBMS(ex-1).pdf",
+    "storedName": "1774943700940-DBMS(ex-1).pdf",
+    "fileType": "PDF",
+    "fileSize": 1597986,
+    "course": "dbms",
+    "topic": "Ex-1",
+    "semester": "Semester 4",
+    "subject": "dbms",
+    "unit": "Ex-1",
+    "tags": [
+      "Record"
+    ],
+    "description": "",
+    "uploadDate": "2026-03-31T07:55:00.977Z",
+    "status": "Completed",
+    "isFavorite": false,
+    "notes": "",
+    "tasks": []
+  }
+]
