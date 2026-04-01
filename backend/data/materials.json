@@ -14,7 +14,8 @@
     "description": "",
     "uploadDate": "2026-03-31T02:33:41.683Z",
     "isFavorite": false,
-    "status": "Completed"
+    "status": "To-do",
+    "subject": "DPCO"
   },
   {
     "id": "ef3c7a87-dea6-429c-8bd0-a35fa06f52c6",
@@ -22,7 +23,7 @@
     "storedName": "1774938696039-Lab Manual.docx.pdf",
     "fileType": "PDF",
     "fileSize": 245213,
-    "course": "dbms",
+    "course": "DBMS",
     "topic": "record",
     "semester": "Semester 4",
     "tags": [
@@ -30,9 +31,12 @@
     ],
     "description": "",
     "uploadDate": "2026-03-31T06:31:36.057Z",
-    "status": "To-do",
+    "status": "Completed",
     "isFavorite": false,
-    "notes": ""
+    "notes": "",
+    "subject": "DBMS",
+    "extractedText": "24CS411 DATABASE MANAGEMENT SYSTEMS LABORATORY 1. Database Design using ER modeling, normalization and Implementation for any application 2. Data Definition Commands, Data Manipulation Commands for inserting, deleting, updating and retrieving Tables 3. Integrity Constraints 4. SQL Functions – Single Row Functions (Numeric, String, Date) and Aggregate Functions Group by clause, Having Clause. 5. Database Querying – Simple queries, Nested queries, Sub queries and Joins 6. Views, Sequences, Synonyms 7. Data Control and Transaction Control statements 8. Database Programming: Implicit and Explicit Cursors 9. Procedures and Functions 10. Triggers 11. Database Connectivity with Front End Tools 12. Simple Queries in MongoDB Ex 02: Data Definition Commands and Data Manipulation Commands AIM: To practice basic SQL DDL Commands like Create, Alter, Drop and Truncate and DML Commands like Insert, update, delete and select. Introduction: SQL (pronounced \"ess-que-el\") stands for Structured Query Language. SQL is used to communicate with a database. SQL statements are used to perform tasks such as update or retrieve data from a database. Some common relational database management systems are: Oracle, Sybase, Microsoft SQL Server, Access, Ingres, etc. Although most database systems use SQL. Data Types. DATA TYPE SPECIFICATION DESCRIPTION Char CHAR(size) Character Data. Size is specified in number. Varchar2 Varchar2(size) Same as above.(Recommended for less storage) Date Date Used for specifying dates Number Number Used to specify numeric data. Number (size, dec) with digits equal to specified size. Number (5, 2) can store up to 999.99. BLOB For storing picture information Binary Large Object Integer Number Same as number Float Number Same as number DDL[Data Definition Language] DDL is concerned with the creation, deletion and modification of database objects like tables, indexes and views. CREATE - to create objects in the database ALTER - alters the structure of the database DROP - delete objects from the database TRUNCATE - remove all records from a table, including all spaces allocated for the records are removed RENAME - rename an object 1. The Create Table Command: - it defines each column of the table uniquely. Each column has minimum of three attributes, a name , data type and size. Syntax: Create table <table name> (<col1> <datatype>(<size>),<col2> <datatype><size>)); 2. Modifying the structure of tables. a)add new columns Syntax: Alter table <tablename> add(<new col><datatype(size),<new col>datatype(size)); 3. Dropping a column from a table. Syntax: Alter table <tablename> drop column <col>; 4. Modifying existing columns. Syntax: Alter table <tablename> modify(<col><newdatatype>(<newsize>)); 5. Renaming the tables Syntax: Rename <oldtable> to <new table>; 6. truncating the tables. Syntax: Truncate table <tablename>; 7. Destroying tables. Syntax: Drop table <tablename>; DATA MANIPULATION LANGUAGE The Data Manipulation Language (DML) is used to retrieve, insert and modify database information. The basic DML commands include INSERT SELECT UPDATE DELETE 1. Inserting Data into Tables: Syntax: insert into <tablename> (<col1>,<col2>) values(<exp>,<exp>); 2. Delete operations a) remove all rows Syntax: delete from <tablename>; b) removal of a specified row/s Syntax: delete from <tablename> where <condition>; 3. Updating the contents of a table. a) updating all rows Syntax: update <tablename> set <col>=<exp>,<col>=<exp>; b) updating seleted records. Syntax: update <tablename> set <col>=<exp>,<col>=<exp> where <condition>; 4. Viewing data in the tables: a) all rows and all columns Syntax: Select <col> to <col n> from tablename; 5. Filtering table data: a) Selected columns and all rows: Syntax: select <col1>,<col2> from <tablename>; b) selected rows and all columns: Syntax: select * from <tablename> where <condition>; c) selected columns and selected rows Syntax: select <col1>,<col2> from <tablename> where<condition>; 6. Sorting data in a table. Syntax: select * from <tablename> order by <col1>,<col2> <[sortorder]>; Result: Thus the various DDL commands and DML commands are studied and the results are verified. Ex No. 04 SQL Functions – Single Row Functions (Numeric, String, Date) and Aggregate Functions Group by clause, Having Clause Aim: To study the various operators and built-in functions in SQL for Oracle. SQL OPERATORS Arithmetic Operators Description +,-,*,/ To perform basic arithmetic operations. Comparison Operators Description = Equal to <>, != is not equal to < less than > greater than >= greater than or equal to <= less than or equal to LIKE column value is similar to specified character(s). IN column value is equal to any one of a specified set of values. BETWEEN...AND column value is between two values, including the end values specified in the range. IS NULL column value does not exist. Logical Operators Description OR For the row to be selected at least one of the conditions must be true. AND For a row to be s",
+    "extractedTextLength": 13481
   },
   {
     "id": "56b03dd0-e9d0-4463-a53a-d8f91419bedb",
@@ -40,19 +44,63 @@
     "storedName": "1774943700940-DBMS(ex-1).pdf",
     "fileType": "PDF",
     "fileSize": 1597986,
-    "course": "dbms",
+    "course": "DBMS",
     "topic": "Ex-1",
     "semester": "Semester 4",
-    "subject": "dbms",
+    "subject": "DBMS",
     "unit": "Ex-1",
     "tags": [
       "Record"
     ],
     "description": "",
     "uploadDate": "2026-03-31T07:55:00.977Z",
+    "status": "In Progress",
+    "isFavorite": false,
+    "notes": "",
+    "tasks": []
+  },
+  {
+    "id": "82b4bd16-fa1f-4ff3-92dc-ad4a59b1224a",
+    "fileName": "EX1B_NORMALIZAITON.docx.pdf",
+    "storedName": "1775017170464-EX1B_NORMALIZAITON.docx.pdf",
+    "fileType": "PDF",
+    "fileSize": 206580,
+    "course": "DBMS",
+    "topic": "UNit2",
+    "semester": "Semester 4",
+    "subject": "DBMS",
+    "unit": "UNit2",
+    "tags": [
+      "Importrant"
+    ],
+    "description": "",
+    "uploadDate": "2026-04-01T04:19:30.488Z",
     "status": "Completed",
     "isFavorite": false,
     "notes": "",
     "tasks": []
+  },
+  {
+    "id": "e664966c-8762-4aff-a4f2-08b52601ddb5",
+    "fileName": "Ex6.pdf",
+    "storedName": "1775019857616-Ex6.pdf",
+    "fileType": "PDF",
+    "fileSize": 1404165,
+    "course": "DBMS",
+    "topic": "new",
+    "semester": "Semester 4",
+    "subject": "DBMS",
+    "unit": "new",
+    "tags": [
+      "new"
+    ],
+    "description": "",
+    "uploadDate": "2026-04-01T05:04:17.683Z",
+    "status": "To-do",
+    "isFavorite": false,
+    "notes": "",
+    "tasks": [],
+    "extractedText": "",
+    "extractedTextLength": 0
   }
 ]

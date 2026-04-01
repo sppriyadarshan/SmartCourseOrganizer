@@ -3,6 +3,8 @@
  * Main entry point for the backend API
  */
 
+require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
@@ -11,6 +13,7 @@ const mime = require("mime"); // npm install mime
 
 // Import route handlers
 const materialsRouter = require("./routes/materials");
+const chatRouter = require("./routes/chat");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -54,6 +57,8 @@ app.get("/files/:filename", (req, res) => {
 
 // ─── Routes ──────────────────────────────────────────────────────────────────
 app.use("/api", materialsRouter);
+app.use("/api", chatRouter);
+app.use("/materials", materialsRouter);
 
 // Health check endpoint
 app.get("/", (req, res) => {

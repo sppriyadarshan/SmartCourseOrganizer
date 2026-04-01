@@ -7,6 +7,7 @@ import React, { useState, useCallback } from "react";
 import Sidebar from "./components/Sidebar";
 import Toast from "./components/Toast";
 import Dashboard from "./components/Dashboard";
+import ChatbotPanel from "./components/ChatbotPanel";
 import MaterialsPage from "./pages/MaterialsPage";
 import UploadPage from "./pages/UploadPage";
 
@@ -20,6 +21,7 @@ const PAGE_META = {
 const App = () => {
   // ── Navigation state ──────────────────────────────────────────────
   const [activePage, setActivePage] = useState({ page: "dashboard", filters: {} });
+  const [isChatOpen, setIsChatOpen] = useState(false);
 
   // ── Toast notification state ──────────────────────────────────────
   const [toast, setToast] = useState(null); // { message, type }
@@ -59,7 +61,7 @@ const App = () => {
         <Sidebar activePage={activePage} onNavigate={setActivePage} />
 
         {/* ── Main Content Area ── */}
-        <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+        <div className={`content-shell ${isChatOpen ? "chat-open" : "chat-closed"}`}>
           {/* Top bar */}
           <header className="topbar">
             <div>
@@ -83,6 +85,11 @@ const App = () => {
             {renderPage()}
           </main>
         </div>
+
+        <ChatbotPanel
+          isOpen={isChatOpen}
+          onToggle={() => setIsChatOpen((currentValue) => !currentValue)}
+        />
       </div>
 
       {/* ── Global Toast ── */}

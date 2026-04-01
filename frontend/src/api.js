@@ -8,6 +8,7 @@ import axios from "axios";
 const BASE = "/api";
 
 export const api = {
+
   /**
    * Upload a file with metadata as multipart/form-data
    * @param {FormData} formData
@@ -54,8 +55,30 @@ export const api = {
   getDashboard: () => axios.get(`${BASE}/dashboard`),
 
   /**
+   * Send a chat prompt to the AI assistant
+   * @param {string} message
+   * @param {string | null} fileId
+   */
+  sendChatMessage: (message, fileId = null) => axios.post(`${BASE}/chat`, { message, fileId }),
+
+  /**
+   * Upload a PDF directly for chat usage
+   * @param {FormData} formData
+   */
+  uploadChatPdf: (formData) =>
+    axios.post(`${BASE}/chat/upload`, formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    }),
+
+  /**
    * Build the download URL for a given material ID
    * @param {string} id
    */
   downloadUrl: (id) => `${BASE}/download/${id}`,
+
+  /**
+   * Download material by stored filename (alternative method)
+   * @param {string} storedName
+   */
+  downloadByFileName: (storedName) => `/files/${encodeURIComponent(storedName)}`,
 };

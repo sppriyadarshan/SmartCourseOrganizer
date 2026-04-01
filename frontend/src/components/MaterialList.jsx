@@ -40,6 +40,7 @@ const tagColor = (i) => TAG_COLORS[i % TAG_COLORS.length];
 // ────────────────────────────────────────────────────────────────────────────
 
 const FILE_SERVER_BASE_URL = process.env.REACT_APP_FILE_SERVER_URL || "http://localhost:5000";
+const CHATBOT_PDF_MIME = "application/x-studyspace-pdf";
 
 const MaterialList = ({ materials, loading, onRefresh, showToast, onSelectMaterial }) => {
   const [selectedIds, setSelectedIds] = useState([]);
@@ -71,6 +72,29 @@ const MaterialList = ({ materials, loading, onRefresh, showToast, onSelectMateri
   const showDetails = (material) => {
     if (onSelectMaterial) {
       onSelectMaterial(material);
+    }
+  };
+
+  const downloadMaterial = async (material) => {
+    try {
+      const downloadUrl = api.downloadUrl(material.id);
+      const response = await fetch(downloadUrl);
+      if (!response.ok) {
+        throw new Error(`Download failed ({response.status})`);
+      }
+      const blob = await response.blob();
+      const fileUrl = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = fileUrl;
+      link.download = material.fileName || "download";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(fileUrl);
+      showToast?.("File downloaded successfully.", "success");
+    } catch (error) {
+      console.error("Download error", error);
+      showToast?.("Failed to download file.", "error");
     }
   };
 
@@ -132,6 +156,24 @@ const MaterialList = ({ materials, loading, onRefresh, showToast, onSelectMateri
     }
   };
 
+  const handleDragStart = (event, material) => {
+    if ((material.fileType || "").toLowerCase() !== "pdf") {
+      event.preventDefault();
+      return;
+    }
+
+    const payload = JSON.stringify({
+      id: material.id,
+      fileName: material.fileName,
+      fileType: material.fileType,
+      hasExtractedText: material.hasExtractedText,
+    });
+
+    event.dataTransfer.effectAllowed = "copy";
+    event.dataTransfer.setData(CHATBOT_PDF_MIME, payload);
+    event.dataTransfer.setData("text/plain", material.fileName);
+  };
+
   // ── Loading state ──
   if (loading) {
     return (
@@ -184,7 +226,12 @@ const MaterialList = ({ materials, loading, onRefresh, showToast, onSelectMateri
             const iconClass = getFileIconClass(m.fileType);
             const isSelected = selectedIds.includes(m.id);
             return (
-              <tr key={m.id} className={isSelected ? "selected" : ""}>
+              <tr
+                key={m.id}
+                className={isSelected ? "selected" : ""}
+                draggable={(m.fileType || "").toLowerCase() === "pdf"}
+                onDragStart={(event) => handleDragStart(event, m)}
+              >
                 {/* Checkbox */}
                 <td>
                   <input
@@ -212,7 +259,7 @@ const MaterialList = ({ materials, loading, onRefresh, showToast, onSelectMateri
                       {m.fileType || "?"}
                     </div>
                     <div>
-                      <div 
+                      <div
                         className="file-name-text" 
                         title={m.fileName}
                         onClick={() => openMaterial(m)}
@@ -278,14 +325,13 @@ const MaterialList = ({ materials, loading, onRefresh, showToast, onSelectMateri
                       View
                     </button>
 
-                    <a
-                      href={api.downloadUrl(m.id)}
-                      download={m.fileName}
+                    <button
                       className="btn btn-download btn-sm"
                       title="Download file"
+                      onClick={() => downloadMaterial(m)}
                     >
                       Download
-                    </a>
+                    </button>
 
                     {onSelectMaterial && (
                       <button
